@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { stripIndents, stripIndent } = require("common-tags");
+const { getMember } = require("../../function.js")
 
 module.exports = {
     name: "serverinfo",
@@ -15,31 +16,37 @@ module.exports = {
 
 function ServerInfo(message) {
 
-    message.delete();
+    if (message.deletable) message.delete().catch();
 
+    const member = getMember(message, message.author);
+    const created = message.guild.createdAt;
     let serverName = message.guild.name;
-    let serverImg = message.guild.icon;
-    let serverID = message.guild.id;
-    let serverMembers = message.guild.memberCount;
-    let serverRegion = message.region;
-    let sender = message.author.username;
-    let senderID = message.author.id;
-    let senderImg = message.author.avatar;
+    let region = message.guild.region;
+    let memberCount = message.guild.memberCount;
+    let sicon = message.guild.iconURL();
+    let antalRoller = message.guild.roles.cache;
+    const roles = message.guild.roles.cache
+        .filter(r => r.id !== message.guild.id)
+        .map(r => r)
+        .join(", ") || "none";
+    const sowner = message.guild.owner;
+    let sid = message.guild.id;
 
-
-    let embed = new MessageEmbed()
-        .addField("Guild info", stripIndents `**> Server namn: ** ${serverName}
-
-            **> Server ID: ** ${serverID}
-            `, true)
-        .addField("Guild info", stripIndents `**> Server members: **${serverMembers}
-
-            **> Server region: ** ${serverRegion}
-            `, true)
-        .setColor("BLUE")
-        .setFooter(sender, `https://cdn.discordapp.com/avatars/${senderID}/${senderImg}.png`)
+    const embed = new MessageEmbed()
+        .setFooter(member.displayName, member.user.displayAvatarURL())
+        .setThumbnail(sicon)
         .setTimestamp()
-        .setThumbnail(`https://cdn.discordapp.com/icons/${serverID}/${serverImg}.png`);
+        .setTitle('🔰| Server Information')
+        .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
+
+    .addField('1.', stripIndents `**> Server namn:** ${serverName}
+    **> Antal användare: ** ${memberCount}
+    **> Skapad: ** ${created}`, true)
+
+    .addField('2.', stripIndents `**> Ägare: ** ${sowner}
+    **> ID:** ${sid}
+    **> Region:** ${region}`, true)
+        .setDescription(stripIndents `**> Antal roller:** ${roles}`, true)
 
     message.channel.send(embed);
 }
