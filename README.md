@@ -13,6 +13,12 @@ Jag har lagt till många andra nya features som jag kommer snacka om senare, all
 | Poll| Ställ ett ja/nej fråga |`-poll <fråga>`  |
 | Serverinfo | Visa information om servern |`-serverinfo`  |
 
+> To-Do: 
+> - 
+> - Väder kommando
+> - Schema kommando (19a, 19b)
+> - Meet-länkar till alla lektioner!!
+
 
 ## Help
 
