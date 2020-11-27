@@ -9,6 +9,8 @@ module.exports = {
     usage: "-kod <språk> <kod>",
     run: async(client, message, args) => {
 
+        if (message.deletable) message.delete();
+
         let language = args[0];
         let koden = args.join(" ").slice(language.length);
         const member = getMember(message, message.author);
@@ -17,28 +19,38 @@ module.exports = {
 
         const embedJS = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL())
+            .setTitle(`${member.displayName}, delade en JavaScript kod!!`)
+            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
             .setTimestamp()
-            .addField("Detta är ett JS kod", `\`\`\`js\n${koden}\`\`\``);
+            .addField("> JavaScript", `\`\`\`js\n${koden}\`\`\``);
 
         const embedHTML = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL())
+            .setTitle(`${member.displayName}, delade en HTML kod!!`)
+            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
             .setTimestamp()
-            .addField("Detta är ett HTML kod", `\`\`\`html\n${koden}\`\`\``);
+            .addField("> HTML", `\`\`\`html\n${koden}\`\`\``);
 
         const embedCSS = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL())
+            .setTitle(`${member.displayName}, delade en CSS kod!!`)
+            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
             .setTimestamp()
-            .addField("Detta är ett CSS kod", `\`\`\`css\n${koden}\`\`\``);
+            .addField("> CSS", `\`\`\`css\n${koden}\`\`\``);
 
         const embedCS = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL())
+            .setTitle(`${member.displayName}, delade en C# kod!!`)
+            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
             .setTimestamp()
-            .addField("Detta är ett C# kod", `\`\`\`cs\n${koden}\`\`\``);
+            .addField("> C#", `\`\`\`cs\n${koden}\`\`\``);
 
         const embedCPP = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL())
+            .setTitle(`${member.displayName}, delade en C++ kod!!`)
+            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
             .setTimestamp()
-            .addField("Detta är ett C++ kod", `\`\`\`cpp\n${koden}\`\`\``);
+            .addField("> C++", `\`\`\`cpp\n${koden}\`\`\``);
 
 
         if (language.toLowerCase() == "js") message.channel.send(embedJS);
