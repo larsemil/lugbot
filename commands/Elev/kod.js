@@ -4,7 +4,7 @@ const { getMember } = require("../../function.js")
 
 module.exports = {
     name: "kod",
-    category: "info",
+    category: "Elev",
     description: "Dela med kod på ett snyggare sätt!",
     usage: "-kod <språk> <kod>",
     run: async(client, message, args) => {
@@ -58,7 +58,7 @@ module.exports = {
         else if (language.toLowerCase() == "css") message.channel.send(embedCSS);
         else if (language.toLowerCase() == "cs") message.channel.send(embedCS);
         else if (language.toLowerCase() == "cpp") message.channel.send(embedCPP);
-        else message.reply("``Använding: -kod <språk> <kod>``, Boten supportar följande språk => `js` `html` `css` `cs` `cpp`");
+        else message.reply("``Använding: -kod <språk> <kod>``, Botten supportar följande språk => `js` `html` `css` `cs` `cpp`");
 
     }
 }

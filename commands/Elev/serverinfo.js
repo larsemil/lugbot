@@ -40,13 +40,13 @@ function ServerInfo(message) {
         .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
 
     .addField('1.', stripIndents `**> Server namn:** ${serverName}
-    **> Antal användare: ** ${memberCount}
+    **> Antal members: ** ${memberCount}
     **> Skapad: ** ${created}`, true)
 
     .addField('2.', stripIndents `**> Ägare: ** ${sowner}
     **> ID:** ${sid}
     **> Region:** ${region}`, true)
-        .setDescription(stripIndents `**> Antal roller:** ${roles}`, true)
+        .addField("Roller", roles)
 
     message.channel.send(embed);
 }

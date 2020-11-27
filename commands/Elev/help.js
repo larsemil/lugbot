@@ -3,7 +3,7 @@ const { stripIndents } = require("common-tags");
 
 module.exports = {
     name: "help",
-    category: "info",
+    category: "Elev",
     description: "Hjälp sida till boten!",
     usage: "!help <command>",
     run: async(client, message, args) => {

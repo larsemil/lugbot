@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "poll",
-    category: "Kul",
-    description: "Ställ en ja/nej fråga!",
+    category: "Elev",
+    description: "Ställ ett ja/nej fråga!",
     usage: "-poll <fråga>",
     run: async(client, message, args) => {
 
