@@ -9,11 +9,6 @@ module.exports = {
 
         if (message.deletable) message.delete();
 
-        // let suggestionChannelName = config.suggestionChannelName;
-        // let suggestionChannel = message.guild.channels.cache.find(ch => ch.name === suggestionChannelName);
-
-        // if (!suggestionChannel) return message.reply("The suggestion channel does not exist, if you are a moderator please create a 'suggestions' channel otherwise contact a staff member").then(m => m.delete({ timeout: 10000 }));
-
         if (!args[0]) return message.reply("Pollen kan inte vara tom!").then(m => m.delete({ timeout: 5000 }));
 
         const suggestEmbed = new MessageEmbed()
