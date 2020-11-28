@@ -1,6 +1,4 @@
 const svgToImg = require('svg-to-img');
-
-const fs = require("fs");
 const { getSchedule, printIfNoInputB, printInputB } = require("../../getSchedule");
 
 module.exports = {
@@ -17,32 +15,32 @@ module.exports = {
                     await svgToImg.from(fs.readFileSync("C:/Users/03BVI01/Desktop/ALLT/Programming/node.js/TE19B_Måndag.svg")).toPng({
                         width: 1207,
                         height: 549,
-                        path: "./TE19A_Måndag.png"
+                        path: "./TE19B_Måndag.png"
                     });
                     await svgToImg.from(fs.readFileSync("C:/Users/03BVI01/Desktop/ALLT/Programming/node.js/TE19B_Tisdag.svg")).toPng({
                         width: 1207,
                         height: 549,
-                        path: "./TE19A_Tisdag.png"
+                        path: "./TE19B_Tisdag.png"
                     });
                     await svgToImg.from(fs.readFileSync("C:/Users/03BVI01/Desktop/ALLT/Programming/node.js/TE19B_Onsdag.svg")).toPng({
                         width: 1207,
                         height: 549,
-                        path: "./TE19A_Onsdag.png"
+                        path: "./TE19B_Onsdag.png"
                     });
                     await svgToImg.from(fs.readFileSync("C:/Users/03BVI01/Desktop/ALLT/Programming/node.js/TE19B_Torsdag.svg")).toPng({
                         width: 1207,
                         height: 549,
-                        path: "./TE19A_Torsdag.png"
+                        path: "./TE19B_Torsdag.png"
                     });
                     await svgToImg.from(fs.readFileSync("C:/Users/03BVI01/Desktop/ALLT/Programming/node.js/TE19B_Fredag.svg")).toPng({
                         width: 1207,
                         height: 549,
-                        path: "./TE19A_Fredag.png"
+                        path: "./TE19B_Fredag.png"
                     });
                     await svgToImg.from(fs.readFileSync("C:/Users/03BVI01/Desktop/ALLT/Programming/node.js/TE19B_Vecka.svg")).toPng({
                         width: 1207,
                         height: 549,
-                        path: "./TE19A_Vecka.png"
+                        path: "./TE19B_Vecka.png"
                     });
                 })();
         */
