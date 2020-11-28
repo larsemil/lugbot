@@ -10,8 +10,10 @@
     "discord.js": "^12.5.0",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
+    "load-svg-file": "^1.0.8",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "svg-to-img": "^2.0.9"
   },
   "devDependencies": {},
   "scripts": {
