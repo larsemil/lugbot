@@ -16,7 +16,7 @@ Jag har lagt till många andra nya features som jag kommer snacka om senare, all
 > To-Do: 
 > - 
 > - [ ] Väder kommando
-> - [ ] Schema kommando (19a, 19b)
+> - [x] Schema kommando (19a, 19b)
 > - [ ] Meet-länkar till alla lektioner!!
 
 
