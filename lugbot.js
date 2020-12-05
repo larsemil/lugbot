@@ -1,50 +1,47 @@
-const { Client, Collection } = require("discord.js");
-const { config } = require('dotenv');
-const fs = require('fs');
+require('dotenv').config()
 
-const client = new Client({
-    disableEveryone: true
+console.log("Welcome to Rolf. Your interactive bot");
+
+const Discord = require('discord.js')
+const client = new Discord.Client();
+const PluginManager = require('./PluginManager.js');
+
+/* Plugins */
+const GenericPlugin = require('./Plugin.js');
+const KittenPlugin = require('./Kitten.js');
+const StringFunPlugin = require('./StringFun.js');
+const Joker = require('./Joker.js');
+const Agree = require('./Agree.js');
+const Day = require('./Day.js');
+
+var plugins = new PluginManager();
+plugins.register(new GenericPlugin());
+plugins.register(new KittenPlugin());
+plugins.register(new StringFunPlugin());
+plugins.register(new Joker());
+plugins.register(new Agree());
+plugins.register(new Day());
+
+client.on('ready', () => {
+    console.log('I am logged in!');
 });
 
-client.commands = new Collection();
-client.aliases = new Collection();
-client.categories = fs.readdirSync("./commands/");
+client.on('message', msg => {
+    console.log('got message');
+    if (msg.cleanContent.startsWith("!")) {
+        var params = msg.cleanContent.split(" ");
+        var command = params[0].substring(1);
+        console.log("Got command " + command);
 
-config({
-    path: __dirname + "/.env"
+        if (plugins.hasCommand(command)) {
+            console.log("There is a plugin to handle this");
+
+            plugins.runCommand(command, msg, params);
+        } else {
+            console.log("Could not find any plugin to handle. Sleeping.");
+        }
+    }
 });
 
-["command"].forEach(handler => {
-    require(`./handler/${handler}`)(client);
-})
-
-client.on("ready", () => {
-
-    console.log(`Inloggad som: ${client.user.username}!`);
-
-})
-
-client.on("message", async message => {
-
-    const prefix = "-";
-
-    if (message.author.bot) return;
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return;
-    if (!message.member) message.member = await message.guild.fetchMember(message);
-
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const cmd = args.shift().toLowerCase();
-
-    if (cmd.length === 0) return;
-
-    let command = client.commands.get(cmd);
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-
-    if (command)
-        command.run(client, message, args);
-
-});
 
 client.login(process.env.TOKEN);
