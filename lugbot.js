@@ -13,6 +13,7 @@ const StringFunPlugin = require('./StringFun.js');
 const Joker = require('./Joker.js');
 const Agree = require('./Agree.js');
 const Day = require('./Day.js');
+const Kod = require('./Kod.js');
 
 var plugins = new PluginManager();
 plugins.register(new GenericPlugin());
@@ -21,6 +22,7 @@ plugins.register(new StringFunPlugin());
 plugins.register(new Joker());
 plugins.register(new Agree());
 plugins.register(new Day());
+plugins.register(new Kod());
 
 client.on('ready', () => {
     console.log('I am logged in!');
@@ -28,9 +30,11 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     console.log('got message');
-    if (msg.cleanContent.startsWith("!")) {
+    let prefix = "!";
+    if (msg.cleanContent.startsWith(prefix)) {
         var params = msg.cleanContent.split(" ");
         var command = params[0].substring(1);
+        const args = msg.content.slice(prefix.length).trim().split(/ +/);
         console.log("Got command " + command);
 
         if (plugins.hasCommand(command)) {
