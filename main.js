@@ -13,6 +13,7 @@ const StringFunPlugin = require('./StringFun.js');
 const Joker = require('./Joker.js');
 const Agree = require('./Agree.js');
 const Day = require('./Day.js');
+const Food = require('./Food.js');
 
 var plugins = new PluginManager();
 plugins.register(new GenericPlugin());
@@ -21,6 +22,7 @@ plugins.register(new StringFunPlugin());
 plugins.register(new Joker());
 plugins.register(new Agree());
 plugins.register(new Day());
+plugins.register(new Food());
 
 client.on('ready', () => {
     console.log('I am logged in!');
