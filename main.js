@@ -14,6 +14,10 @@ const Joker = require('./Joker.js');
 const Agree = require('./Agree.js');
 const Day = require('./Day.js');
 const Food = require('./Food.js');
+const Fika = require('./Fika')
+const DataStore = require('./DataStore');
+
+let dataStore = new DataStore();
 
 var plugins = new PluginManager();
 plugins.register(new GenericPlugin());
@@ -23,6 +27,10 @@ plugins.register(new Joker());
 plugins.register(new Agree());
 plugins.register(new Day());
 plugins.register(new Food());
+plugins.register(new Fika(dataStore));
+
+
+
 
 client.on('ready', () => {
     console.log('I am logged in!');
