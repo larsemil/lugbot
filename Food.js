@@ -30,7 +30,7 @@ class Food extends Plugin{
             rp(options).then((html) => {
                 console.log('Parsing html');
 
-                let elements = $('#weekList_' + dayIndex + ' .bulleted-list', html);
+                let elements = $('#weekList_' + dayIndex + ' .day-menus-container > div', html);
                 console.log('Found ' + elements.length + ' meals for today');
     
                 if (!elements || elements.length === 0) {

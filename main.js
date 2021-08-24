@@ -37,7 +37,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    console.log('got message');
+    console.log('got message from ' + msg.author.username);
     if(msg.cleanContent.startsWith("!")){
         var params = msg.cleanContent.split(" ");
         var command = params[0].substring(1);
