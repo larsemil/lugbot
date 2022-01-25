@@ -25,7 +25,9 @@ class Joker extends Plugin{
             ['När jag åker utomlands tar jag alltid med strumpor med hål i.', 'Jag hoppas att de ska bli stoppade i tullen'],
             ['Hur många bor det i Kanadas huvudstad?', 'Åtta va?'],
             ['Håkan Juholt får skylla sig själv när han ljög. Han kunde Ju Holt sig till sanningen!'],
-            ['Vet du varför mammutarna dog ut?', 'Nej?', 'Det fanns inga papputar']
+            ['Vet du varför mammutarna dog ut?', 'Nej?', 'Det fanns inga papputar'],
+	    ['Vet du varför du aldrig ser en elefant gömma sig i ett träd?', 'De är väldigt duktiga på det', 'Vet du varför de målar sina kulor röda?', 'För att kunna gömma sig i körsbärsträd', 'Vet du vad som är det högsta ljudet i skogen?', 'Giraffer som äter körsbär'],
+	    ['Vad sa matrosen till chefen som klev honom på foten?', 'Aj aj kapten']
         ],
         'otterJokes': [
             ['Var kommer uttrarna ifrån?', 'Uttre världsrymden.'],

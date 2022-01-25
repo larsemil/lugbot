@@ -42,7 +42,7 @@ class Food extends Plugin{
     
                 for (let i = 0; i < elements.length; i++) {
     
-                    food += "`" + $(elements[i]).text().trim().replace(/(\r\n|\n|\r)/gm, "") + "`";
+                    food += "`" + $(elements[i]).text().replace(/(\r\n|\n|\r)/gm, "").replace("Normal.:","").replace("Normal:","").trim() + "`";
     
                     if (i != elements.length - 1) {
                         food += " eller ";

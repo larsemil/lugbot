@@ -12,6 +12,7 @@ const KittenPlugin = require('./Kitten.js');
 const StringFunPlugin = require('./StringFun.js');
 const Joker = require('./Joker.js');
 const Agree = require('./Agree.js');
+const Xmas = require('./Xmas.js');
 const Day = require('./Day.js');
 const Food = require('./Food.js');
 const Fika = require('./Fika')
@@ -27,6 +28,7 @@ plugins.register(new Joker());
 plugins.register(new Agree());
 plugins.register(new Day());
 plugins.register(new Food());
+plugins.register(new Xmas());
 plugins.register(new Fika(dataStore));
 
 
